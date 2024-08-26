@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            DialogScreen()
+            LazyVerticalGrid()
         }
     }
 }
@@ -64,4 +65,14 @@ fun DialogScreen() {
             showDialog = false
         }
     )
+}
+@Composable
+fun LazyVerticalGrid(){
+    androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
+        columns = GridCells.Fixed(3)
+    ) {
+        items(9) { index ->
+            Text(text = "Item #$index")
+        }
+    }
 }
