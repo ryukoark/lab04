@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            SwitchScreen()
+            SwitchScren()
         }
     }
 }
@@ -85,7 +85,7 @@ fun MySwitch(checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
     )
 }
 @Composable
-fun SwitchScreen() {
+fun SwitchScren() {
     // Estado para controlar si el switch está activado o desactivado
     var isChecked by remember { mutableStateOf(false) }
 
