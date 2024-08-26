@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LazyVerticalGrid()
+            SwitchScreen()
         }
     }
 }
@@ -75,4 +76,24 @@ fun LazyVerticalGrid(){
             Text(text = "Item #$index")
         }
     }
+}
+@Composable
+fun MySwitch(checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    Switch(
+        checked = checked,
+        onCheckedChange = onCheckedChange
+    )
+}
+@Composable
+fun SwitchScreen() {
+    // Estado para controlar si el switch está activado o desactivado
+    var isChecked by remember { mutableStateOf(false) }
+
+    // Llamamos al composable MySwitch
+    MySwitch(
+        checked = isChecked,
+        onCheckedChange = { newValue ->
+            isChecked = newValue
+        }
+    )
 }
