@@ -67,6 +67,7 @@ fun DialogScreen() {
         }
     )
 }
+
 @Composable
 fun LazyVerticalGrid(){
     androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
